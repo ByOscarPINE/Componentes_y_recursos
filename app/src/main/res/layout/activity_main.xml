@@ -1,160 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/material_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="16dp">
-                <ImageView
-                    android:id="@+id/image1"
-                    android:src="@drawable/img"
-                    android:layout_width="88dp"
-                    android:layout_height="88dp"
-                    android:background="#5F5F5F"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-                <TextView
-                    android:id="@+id/text1"
-                    android:text="Tiendita chida"
-                    android:layout_marginStart="16dp"
-                    app:layout_constraintStart_toEndOf="@+id/image1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="0dp"
-                    android:textAppearance="?attr/textAppearanceHeadlineLargeEmphasized"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    app:layout_constraintStart_toEndOf="@+id/image1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text1"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    android:maxLines="3"
-                    android:ellipsize="end"
-                    />
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button1"
-                    android:text="Ver más"
-                    app:icon="@drawable/outline_local_convenience_store_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                </com.google.android.material.button.MaterialButton>
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button2"
-                    android:text="Skip"
-                    app:icon="@drawable/outline_local_convenience_store_24"
-                    app:layout_constraintEnd_toStartOf="@+id/button1"
-                    app:layout_constraintTop_toBottomOf="@+id/image1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.Material3.Button.TextButton"
-                    >
+        <include
+            android:id="@+id/contenedor"
+            layout="@layout/content_scrolling"/>
 
-                </com.google.android.material.button.MaterialButton>
+    </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/BABar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:navigationIcon="@drawable/outline_dehaze_24"
+        app:backgroundTint="#81C784"
+        app:fabAnimationMode="slide"
+        app:hideOnScroll="true"
+        style="@style/Widget.Material3.BottomAppBar"/>
 
-                <ImageView
-                    android:id="@+id/imgCard2"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_marginTop="160dp"
-                    android:background="#5F5F5F"
-                    android:src="@drawable/img"
-                    app:layout_constraintTop_toTopOf="@id/image1"
-                    tools:layout_editor_absoluteX="0dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/outline_autorenew_24"
+        app:layout_anchor="@id/BABar"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvtext2"
-                    android:text="Tiendita chida"
-                    android:textAppearance="?attr/textAppearanceHeadlineLarge"
-                    android:layout_marginStart="16dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imgCard2"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textLemail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="32dp"
-                    android:hint="Ingrese Email"
-                    app:endIconMode="clear_text"
-                    app:helperText="Requerido"
-                    app:layout_constraintTop_toBottomOf="@id/tvtext2"
-                    tools:layout_editor_absoluteX="16dp" >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textEemail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textLurl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:hint="Ingrese URL"
-                    app:endIconMode="clear_text"
-                    app:helperText="Requerido"
-                    app:layout_constraintTop_toBottomOf="@id/textLemail"
-                    tools:layout_editor_absoluteX="16dp" >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textEurl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textUri"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textLur"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:hint="Ingrese URL"
-                    app:endIconMode="clear_text"
-                    app:helperText="Requerido"
-                    app:layout_constraintTop_toBottomOf="@id/textLurl"
-                    tools:layout_editor_absoluteX="16dp" >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textEur"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textUri"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-
-</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
