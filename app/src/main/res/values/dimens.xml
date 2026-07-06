@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_margin_main">8dp</dimen>
+    <dimen name="common_margin_default">16dp</dimen>
+    <dimen name="img_size">88dp</dimen>
+    <dimen name="none">0dp</dimen>
+    <dimen name="size_image_default">160dp</dimen>
+    <dimen name="common_margin_large">60dp</dimen>
+</resources>

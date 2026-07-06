@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:id="@+id/nestedScrollView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
         <include
             android:id="@+id/contenedor"
             layout="@layout/content_scrolling"/>
 
-    </androidx.core.widget.NestedScrollView>
+<!--    </androidx.core.widget.NestedScrollView>-->
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/BABar"
@@ -26,7 +26,8 @@
         app:backgroundTint="#81C784"
         app:fabAnimationMode="slide"
         app:hideOnScroll="true"
-        style="@style/Widget.Material3.BottomAppBar"/>
+        app:menu="@menu/menu_main"
+        style="@style/Widget.Material3.BottomAppBar.Legacy"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/FABtn"

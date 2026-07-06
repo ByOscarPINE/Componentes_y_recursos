@@ -3,6 +3,8 @@ package com.example.componentesyrecursos
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.webkit.URLUtil
 import android.widget.Toast
@@ -33,6 +35,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        setSupportActionBar(binding.BABar)
+
         // 1. Ocultar Banner Superior (Card 1)
         binding.contenedor.btnSkip.setOnClickListener {
             binding.contenedor.matCartView.visibility = View.GONE
@@ -46,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                 binding.BABar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
             }
         }
+
 
         // 3. Navigation Icon Menú
         binding.BABar.setNavigationOnClickListener {
@@ -149,5 +154,20 @@ class MainActivity : AppCompatActivity() {
             .placeholder(R.drawable.outline_bid_landscape_24)
             .error(R.drawable.outline_broken_image_24)
             .into(binding.contenedor.imgCard2)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.a_exit -> {
+                Toast.makeText(this, "Nos vemos luego", Toast.LENGTH_SHORT).show()
+                finish()
+                true
+            } else -> super.onOptionsItemSelected(item)
+        }
     }
 }

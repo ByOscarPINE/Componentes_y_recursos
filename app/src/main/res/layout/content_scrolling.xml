@@ -6,70 +6,71 @@
     android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:clipToPadding="false"
-        android:paddingBottom="88dp"> <com.google.android.material.card.MaterialCardView
+        >
+
+        <com.google.android.material.card.MaterialCardView
         android:id="@+id/matCartView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="4dp">
+            android:layout_marginTop="@dimen/common_margin_main"
+            android:layout_marginHorizontal="@dimen/common_margin_main"
+            >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:layout_marginTop="@dimen/common_margin_default"
+            android:layout_marginHorizontal="@dimen/common_margin_default"
+            >
 
             <ImageView
                 android:id="@+id/oxxoimage"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
+                android:layout_width="@dimen/img_size"
+                android:layout_height="@dimen/img_size"
                 android:src="@drawable/img"
-                android:scaleType="centerCrop"
+                android:background="#D9C5E6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textoImage"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/none"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:text="Store"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceHeadlineLarge"
+                android:layout_marginStart="@dimen/common_margin_default"
                 app:layout_constraintStart_toEndOf="@id/oxxoimage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/oxxoimage" />
 
             <TextView
-                android:id="@+id/descripcion"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/none"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:text="Printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@id/oxxoimage"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:maxLines="3"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="@+id/textoImage"
+                app:layout_constraintEnd_toEndOf="@+id/textoImage"
                 app:layout_constraintTop_toBottomOf="@id/textoImage"
-                app:layout_constraintBottom_toTopOf="@id/btnBuy" />
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnBuy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 android:text="Comprar"
                 app:icon="@drawable/outline_local_convenience_store_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/descripcion" />
+                app:layout_constraintTop_toBottomOf="@id/oxxoimage"
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSkip"
@@ -87,41 +88,38 @@
             android:id="@+id/matCardForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
+            android:layout_marginTop="@dimen/common_margin_main"
+            android:layout_marginHorizontal="@dimen/common_margin_main"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="24dp">
+                >
 
                 <ImageView
                     android:id="@+id/imgCard2"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="@dimen/size_image_default"
                     android:background="#EDEDED"
-                    android:scaleType="centerCrop"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="0dp" />
+                    />
 
                 <TextView
                     android:id="@+id/textTitulo2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Store"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginStart="16dp"
+                    android:textAppearance="?attr/textAppearanceHeadlineLarge"
+                    android:layout_marginStart="@dimen/common_margin_default"
                     app:layout_constraintTop_toBottomOf="@id/imgCard2"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/TILemail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="@dimen/common_margin_large"
+                    android:layout_marginHorizontal="@dimen/common_margin_default"
                     android:hint="Ingresa el Email"
                     app:helperText="Requerido"
                     app:errorEnabled="true"
@@ -138,11 +136,9 @@
                     android:id="@+id/TILurl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginHorizontal="@dimen/common_margin_default"
                     android:hint="Ingresa una URL"
                     app:helperText="Requerido"
-                    app:errorEnabled="true"
                     app:layout_constraintTop_toBottomOf="@+id/TILemail">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -156,8 +152,7 @@
                     android:id="@+id/TILpass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginHorizontal="@dimen/common_margin_default"
                     android:hint="Ingrese una contraseña"
                     app:helperText="Requerido"
                     app:endIconMode="password_toggle"
@@ -175,18 +170,17 @@
                     android:id="@+id/dividerpass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="16dp"
-                    app:layout_constraintTop_toBottomOf="@+id/TILpass"/>
+                    android:layout_marginTop="@dimen/common_margin_main"
+                    app:layout_constraintTop_toBottomOf="@+id/TILpass"
+                    app:layout_constraintStart_toStartOf="@+id/TILpass"
+                    />
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/CBpass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Habilitar Contraseña"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/TILpass"
                     app:layout_constraintTop_toBottomOf="@id/dividerpass"/>
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -195,8 +189,7 @@
                     android:layout_height="wrap_content"
                     android:text="Ocultar Boton"
                     android:checked="true"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/TILpass"
                     app:layout_constraintTop_toTopOf="@+id/CBpass"
                     app:layout_constraintBottom_toBottomOf="@+id/CBpass"/>
 
@@ -207,17 +200,13 @@
                     android:text="El texto del Chip"
                     android:checkable="true"
                     app:closeIconEnabled="true"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/CBpass"
                     app:layout_constraintTop_toBottomOf="@id/CBpass"/>
 
                 <com.google.android.material.slider.Slider
                     android:id="@+id/Slider1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="12dp"
                     android:valueFrom="0.0"
                     android:valueTo="10.0"
                     android:value="2.0"
@@ -228,11 +217,11 @@
                     android:id="@+id/MTcolores"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/common_margin_default"
                     app:singleSelection="true"
                     app:selectionRequired="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Slider1"
+                    app:layout_constraintStart_toStartOf="@+id/Slider1"
                     app:layout_constraintTop_toBottomOf="@+id/Slider1">
 
                     <com.google.android.material.button.MaterialButton
@@ -257,6 +246,25 @@
                         style="?attr/materialButtonOutlinedStyle"/>
 
                 </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <FrameLayout
+                    android:id="@+id/contNotificacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/common_margin_default"
+                    android:paddingEnd="@dimen/common_margin_default"
+                    app:layout_constraintTop_toBottomOf="@+id/MTcolores"
+                    app:layout_constraintStart_toStartOf="@+id/CBpass"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/imgBtnNot"
+                        android:src="@drawable/baseline_edit_notifications_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        />
+                </FrameLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
